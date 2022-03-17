@@ -1,6 +1,6 @@
 # JavaScript action
-name: Setup Jira
-description: Set up Jira CLI
+name: Setup ize
+description: Set up ize
 branding:
   icon: 'check-square'
   color: 'blue'
@@ -9,7 +9,7 @@ inputs:
   version:
     description: Version of the CLI to use
     required: false
-    default: 1.0.20
+    default: 0.0.3
 
 runs:
   using: 'node12'
