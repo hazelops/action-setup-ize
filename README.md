@@ -10,7 +10,7 @@ Copy and paste the following snippet into your .yml file.
 
 ```yaml
  - name: ize setup
-   uses: hazelops/action-setup-ize@0.0.1
+   uses: hazelops/setup-ize@0.0.1
    with:
      version: 0.3.0
 ```
