@@ -1,0 +1,16 @@
+# JavaScript action
+name: Setup ize
+description: Set up ize
+branding:
+  icon: 'check-square'
+  color: 'blue'
+
+inputs:
+  version:
+    description: Version of the CLI to use
+    required: false
+    default: 0.0.3
+
+runs:
+  using: 'node12'
+  main: './dist/index.js'
