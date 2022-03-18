@@ -2,6 +2,7 @@ const core = require('@actions/core');
 const cache = require('@actions/tool-cache');
 const semver = require('semver');
 const fs = require('fs').promises;
+const os = require('os');
 
 const toolName = 'ize';
 
@@ -28,10 +29,14 @@ async function downloadCLI(version) {
     const cleanVersion = semver.clean(version) || '';
     const downloadURL = encodeURI(`https://github.com/hazelops/ize/releases/download/${cleanVersion}/ize_${cleanVersion}_linux_amd64.tar.gz`);
     const downloadedTool = await cache.downloadTool(downloadURL);
+
+    const extractedPath = await cache.extractTar(downloadedTool);
+    const toolPath = `${extractedPath}/ize`
     const permissions = 0o755;
 
-    await fs.chmod(downloadedTool, permissions);
-    return await cache.cacheFile(downloadedTool, toolName, toolName, version);
+    await fs.chmod(toolPath, permissions);
+
+    return await cache.cacheFile(toolPath, toolName, toolName, version, os.arch());
 }
 
 exec();
