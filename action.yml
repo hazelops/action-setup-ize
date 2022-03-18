@@ -1,15 +1,15 @@
 # JavaScript action
 name: Setup ize
-description: Set up ize
+description: Setup ize tool
 branding:
-  icon: 'check-square'
+  icon: 'terminal'
   color: 'blue'
 
 inputs:
   version:
-    description: Version of the CLI to use
+    description: Version of the ize to use
     required: false
-    default: 0.0.3
+    default: 0.3.0
 
 runs:
   using: 'node12'
