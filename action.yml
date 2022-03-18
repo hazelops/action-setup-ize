@@ -1,5 +1,5 @@
 # JavaScript action
-name: setup-ize
+name: action-setup-ize
 description: Setup ize tool
 branding:
   icon: 'terminal'
