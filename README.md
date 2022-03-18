@@ -9,8 +9,8 @@ Ize is designed as a simple wrapper around popular tools, so they can be easily 
 Copy and paste the following snippet into your .yml file.
 
 ```yaml
- - name: test action kobrikx
-   uses: hazelops/setup-ize@0.0.1
+ - name: ize setup
+   uses: hazelops/action-setup-ize@0.0.1
    with:
      version: 0.3.0
 ```
