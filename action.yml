@@ -9,7 +9,7 @@ inputs:
   version:
     description: Version of the ize to use
     required: false
-    default: 0.3.0
+    default: 1.1.13
 
 runs:
   using: 'node20'

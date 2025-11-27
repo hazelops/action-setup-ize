@@ -25,9 +25,25 @@ async function exec() {
     }
 }
 
+function getPlatform() {
+    const arch = os.arch();
+    // Map Node.js architecture names to ize release naming
+    const archMap = {
+        'x64': 'amd64',
+        'arm64': 'arm64'
+    };
+
+    if (!archMap[arch]) {
+        throw new Error(`Unsupported architecture: ${arch}. Supported architectures: x64, arm64`);
+    }
+
+    return archMap[arch];
+}
+
 async function downloadCLI(version) {
     const cleanVersion = semver.clean(version) || '';
-    const downloadURL = encodeURI(`https://github.com/hazelops/ize/releases/download/${cleanVersion}/ize_${cleanVersion}_linux_amd64.tar.gz`);
+    const platform = getPlatform();
+    const downloadURL = encodeURI(`https://github.com/hazelops/ize/releases/download/${cleanVersion}/ize_${cleanVersion}_linux_${platform}.tar.gz`);
     const downloadedTool = await cache.downloadTool(downloadURL);
 
     const extractedPath = await cache.extractTar(downloadedTool);
